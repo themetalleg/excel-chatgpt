@@ -40,22 +40,13 @@ The script requires VBA-JSON for parsing JSON responses from the ChatGPT API. Fo
 
 1. Download the latest version of VBA-JSON from [VBA-JSON on GitHub](https://github.com/VBA-tools/VBA-JSON/releases).
 2. Import the `JsonConverter.bas` file into your Excel VBA project via the VBA editor.
-3. In the VBA editor, go to `Tools` > `References` and add a reference to `Microsoft Scripting Runtime` if not already added, as VBA-JSON requires this.
 
-### Step 5: Secure Your API Key
-
-Store your OpenAI API key securely and include it in the VBA script:
-```vba
-Dim apiKey As String
-apiKey = "Your_OpenAI_API_Key"  // Replace with your actual OpenAI API key
-```
-
-### Step 6: Test the Function
+### Step 5: Test the Function
 
 1. Enter a test query in a cell in Excel, for example:
 
 ```excel
-=GPT("What is the capital of France?")
+=GPT("What is the capital of France?", [Cell with API_KEY])
 ```
 
 2. Ensure macros are enabled when you open the workbook.
@@ -69,8 +60,8 @@ The script includes basic error handling to manage potential issues with network
 You can use the GPT() function anywhere in your Excel workbook:
 
 ```excel
-=GPT("Your question here")
-=GPT("What is the capital city of " & A1)
+=GPT("Your question here", [Cell with API_KEY])
+=GPT("What is the capital city of " & A1, [Cell with API_KEY])
 ```
 
 This function concatenates text with the contents of cell A1 to form the query.
